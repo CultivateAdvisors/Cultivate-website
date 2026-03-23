@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cultivate Health Advisors — Growing Innovation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #4ABFBF;
+    --teal-dark: #2E9A9A;
+    --teal-light: #7DD4D4;
+    --navy: #1A2B3C;
+    --navy-mid: #243447;
+    --cream: #F8F4EF;
+    --warm-white: #FDFBF8;
+    --text-dark: #1A2B3C;
+    --text-mid: #4A5568;
+    --text-light: #718096;
+    --gold: #C8A96E;
+    --gold-light: #E8C990;
+    --border: rgba(74, 191, 191, 0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(253, 251, 248, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(74, 191, 191, 0.15);
+    transition: box-shadow 0.3s;
+  }
+
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-logo .wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--teal);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo .tagline {
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 100%;
+    height: 1px;
+    background: var(--teal);
+    transition: right 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--teal); }
+  .nav-links a:hover::after { right: 0; }
+
+  .nav-cta {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-white) !important;
+    background: var(--teal);
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--teal-dark) !important; color: white !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 6rem 6rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    top: -20%; right: -8%;
+    width: 60%;
+    height: 140%;
+    background: radial-gradient(ellipse, rgba(74, 191, 191, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--teal);
+    display: block;
+  }
+
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 4.5vw, 5rem);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--warm-white);
+    margin-bottom: 2rem;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--teal-light);
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(253, 251, 248, 0.65);
+    max-width: 28rem;
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background: var(--teal);
+    color: white;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    color: rgba(253, 251, 248, 0.75);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 1px solid rgba(253, 251, 248, 0.25);
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--teal); color: var(--teal-light); }
+
+  .hero-right {
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    top: 10%; left: -5%;
+    width: 110%;
+    height: 90%;
+    background:
+      radial-gradient(ellipse at 20% 60%, rgba(74, 191, 191, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(200, 169, 110, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .stat-card {
+    padding: 1.75rem;
+    background: white;
+    border-radius: 4px;
+    border-left: 3px solid var(--teal);
+    box-shadow: 0 2px 20px rgba(26, 43, 60, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(26, 43, 60, 0.1); }
+
+  .stat-card:nth-child(2) { border-left-color: var(--gold); }
+  .stat-card:nth-child(3) { border-left-color: var(--navy); }
+  .stat-card:nth-child(4) { border-left-color: var(--teal-dark); }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  .hero-quote {
+    margin-top: 2rem;
+    padding: 1.5rem 1.75rem;
+    background: var(--navy);
+    border-radius: 4px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(253, 251, 248, 0.85);
+  }
+
+  .hero-quote cite {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.7rem;
+    font-style: normal;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    padding: 7rem 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 1.5rem;
+    height: 1px;
+    background: var(--teal);
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--teal-dark); }
+
+  /* ── ABOUT ── */
+  #about {
+    background: white;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .about-body {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--text-mid);
+    margin-bottom: 1.75rem;
+  }
+
+  .about-body strong {
+    font-weight: 500;
+    color: var(--text-dark);
+  }
+
+  .about-right {
+    padding-top: 0.5rem;
+  }
+
+  .founder-card {
+    background: var(--cream);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .founder-header {
+    background: var(--navy);
+    padding: 1.75rem 2rem;
+  }
+
+  .founder-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+
+  .founder-title {
+    font-size: 0.72rem;
+    font-weight: 300;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+  }
+
+  .founder-body {
+    padding: 1.75rem 2rem;
+  }
+
+  .founder-bio {
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--text-mid);
+    margin-bottom: 1.25rem;
+  }
+
+  .credential-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .credential-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-mid);
+  }
+
+  .credential-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+
+  .value-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .pillar {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+    background: var(--cream);
+    border-radius: 4px;
+    border-left: 2px solid var(--teal);
+    transition: border-left-width 0.2s;
+  }
+
+  .pillar:hover { border-left-width: 4px; }
+  .pillar:nth-child(2) { border-left-color: var(--gold); }
+  .pillar:nth-child(3) { border-left-color: var(--navy); }
+  .pillar:nth-child(4) { border-left-color: var(--teal-dark); }
+
+  .pillar-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pillar-content h4 {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+  }
+
+  .pillar-content p {
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1.55;
+    color: var(--text-mid);
+  }
+
+  /* ── SERVICES ── */
+  #services {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #services::before {
+    content: '';
+    position: absolute;
+    top: -30%; right: -10%;
+    width: 60%;
+    height: 160%;
+    background: radial-gradient(ellipse, rgba(74, 191, 191, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  #services .section-label { color: var(--teal-light); }
+  #services .section-label::before { background: var(--teal-light); }
+  #services .section-title { color: var(--warm-white); }
+  #services .section-title em { color: var(--teal-light); }
+
+  .services-intro {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(253, 251, 248, 0.65);
+    max-width: 44rem;
+    margin-bottom: 4rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(74, 191, 191, 0.15);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .service-card {
+    background: rgba(26, 43, 60, 0.8);
+    padding: 2.5rem;
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--teal);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .service-card:hover { background: rgba(36, 52, 71, 0.95); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-card:nth-child(2)::before { background: var(--gold); }
+  .service-card:nth-child(3)::before { background: var(--teal-light); }
+  .service-card:nth-child(4)::before { background: var(--teal-dark); }
+  .service-card:nth-child(5)::before { background: var(--gold-light); }
+
+  .service-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: rgba(74, 191, 191, 0.15);
+    line-height: 1;
+    margin-bottom: 1.25rem;
+    transition: color 0.3s;
+  }
+
+  .service-card:hover .service-number { color: rgba(74, 191, 191, 0.3); }
+
+  .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .service-desc {
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(253, 251, 248, 0.55);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .service-items li {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: rgba(253, 251, 248, 0.45);
+    padding-left: 0.9rem;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .service-items li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 0.7rem;
+  }
+
+  /* ── CLIENTS ── */
+  #clients {
+    background: var(--cream);
+  }
+
+  .clients-intro {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-mid);
+    max-width: 42rem;
+    margin-bottom: 4rem;
+  }
+
+  .clients-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 5rem;
+    align-items: start;
+  }
+
+  .client-logos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(74, 191, 191, 0.15);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 4rem;
+  }
+
+  .client-logo-cell {
+    background: white;
+    padding: 2rem 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .client-logo-cell:hover { background: var(--warm-white); }
+
+  .client-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--navy);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .client-name span {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-top: 0.35rem;
+  }
+
+  .testimonial-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .testimonial-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 20px rgba(26, 43, 60, 0.06);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(26, 43, 60, 0.1);
+  }
+
+  .testimonial-card::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 6rem;
+    color: rgba(74, 191, 191, 0.12);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .author-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .author-info strong {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .author-info span {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--text-light);
+  }
+
+  .engagement-strip {
+    background: var(--navy);
+    border-radius: 6px;
+    padding: 3rem 3.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .engagement-strip h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  .engagement-strip p {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(253, 251, 248, 0.6);
+    line-height: 1.7;
+    max-width: 36rem;
+  }
+
+  .engagement-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .btn-outline-teal {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border: 1px solid var(--teal);
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-outline-teal:hover { background: var(--teal); color: white; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0F1A26;
+    padding: 3rem 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo .wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--teal);
+  }
+
+  .footer-logo .tagline {
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: right;
+  }
+
+  .footer-contact a {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: rgba(253, 251, 248, 0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-contact a:hover { color: var(--teal); }
+
+  .footer-copy {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: rgba(253, 251, 248, 0.25);
+    letter-spacing: 0.08em;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: 2rem;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-left > * {
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+
+  .stat-card {
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .stat-card:nth-child(1) { animation-delay: 0.5s; }
+  .stat-card:nth-child(2) { animation-delay: 0.6s; }
+  .stat-card:nth-child(3) { animation-delay: 0.7s; }
+  .stat-card:nth-child(4) { animation-delay: 0.8s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="wordmark">Cultivate Health Advisors</span>
+    <span class="tagline">Growing Innovation</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="mailto:amy@cultivatehealthadvisors.com" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Healthcare Innovation Advisory</div>
+    <h1 class="hero-headline">
+      Transforming<br>
+      healthcare through<br>
+      <em>strategic growth</em>
+    </h1>
+    <p class="hero-sub">
+      A boutique consultancy partnering with startups, investors, and established healthcare organizations to accelerate commercialization, partnerships, and market expansion in digital health, AI, and tech-enabled care.
+    </p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Explore Services</a>
+      <a href="#about" class="btn-ghost">Our Approach</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number">25+</div>
+        <div class="stat-label">Years in Healthcare Innovation</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Practice Areas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">C-Suite</div>
+        <div class="stat-label">Executive Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">US & Global</div>
+        <div class="stat-label">Market Reach</div>
+      </div>
+    </div>
+    <div class="hero-quote">
+      <p>From ideation to commercialization — a strategic partner in transforming healthcare through innovation.</p>
+      <cite>Amy Andersen — Founder & Principal</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-left">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">A trusted partner for <em>healthcare innovators</em></h2>
+        <p class="about-body">
+          Cultivate Health Advisors is a boutique consultancy founded and led by <strong>Amy Andersen</strong>, a seasoned healthcare executive with over 25 years of experience spanning innovation, corporate strategy, and growth advisory. The firm works at the intersection of clinical insight, commercial acumen, and industry relationships.
+        </p>
+        <p class="about-body">
+          We partner with startups, investors, and established healthcare organizations to drive <strong>commercialization, strategic partnerships, and market expansion</strong> in digital health, AI, and tech-enabled care delivery. Our work spans the full growth lifecycle — from market entry and product-market fit through scale, fundraising, and strategic partnership development.
+        </p>
+        <p class="about-body">
+          What sets us apart is the rare combination of <strong>C-suite operational experience</strong> across payer, provider, and health tech sectors with an active, high-value network of US healthcare decision-makers, regulators, and investors.
+        </p>
+
+        <div class="value-pillars" style="margin-top:2.5rem;">
+          <div class="pillar">
+            <div class="pillar-icon">🎯</div>
+            <div class="pillar-content">
+              <h4>Deep Expertise</h4>
+              <p>C-suite experience across payer, provider, and health tech with deep knowledge of reimbursement, compliance, and GTM strategy.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🔗</div>
+            <div class="pillar-content">
+              <h4>High-Value Network</h4>
+              <p>Active connections to US payers, provider networks, regulators, investors, and commercial partners — opening doors that matter.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">⚡</div>
+            <div class="pillar-content">
+              <h4>Strategic Impact</h4>
+              <p>We don't just advise — we execute. From market entry planning to landing pilots and partnerships, we deliver tangible results.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🏆</div>
+            <div class="pillar-content">
+              <h4>Proven Reputation</h4>
+              <p>Known industry thought leader with a track record of executing on market development and commercial partnerships.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-right">
+        <div class="founder-card">
+          <div class="founder-header">
+            <div class="founder-name">Amy Andersen</div>
+            <div class="founder-title">Founder & Principal</div>
+          </div>
+          <div class="founder-body">
+            <p class="founder-bio">
+              Amy is a senior healthcare executive and innovator with over 25 years of experience driving growth, strategy, and commercialization across the healthcare ecosystem. She brings a rare blend of operational depth and strategic breadth.
+            </p>
+            <ul class="credential-list">
+              <li>Oracle Health — Executive Leadership</li>
+              <li>Philips Healthcare</li>
+              <li>IBM Health</li>
+              <li>Booz Allen Hamilton</li>
+              <li>Kaiser Permanente</li>
+              <li>Stanford University School of Medicine</li>
+              <li>GenXys — SVP of Growth (OptimizeGx)</li>
+              <li>Sorsix — US General Manager</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Services built for <em>healthcare innovators</em></h2>
+    <p class="services-intro">
+      We offer a focused suite of advisory services designed to accelerate growth, secure strategic partnerships, and build durable market presence for digital health and health tech companies.
+    </p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <h3 class="service-title">Go-to-Market Strategy & Execution</h3>
+        <p class="service-desc">Tailored GTM strategies that align product-market fit with clinical, regulatory, and business value narratives to drive market entry and accelerate adoption.</p>
+        <ul class="service-items">
+          <li>Define product-market fit and priority market segments</li>
+          <li>Craft messaging, white papers, and sales collateral</li>
+          <li>Align GTM with clinical and regulatory narratives</li>
+          <li>Validate entry strategy through stakeholder interviews</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <h3 class="service-title">Strategic Partnerships & Ecosystem Development</h3>
+        <p class="service-desc">Cultivating alliances with health systems, payers, PBMs, digital health companies, and cloud providers to expand distribution and amplify market presence.</p>
+        <ul class="service-items">
+          <li>Identify and cultivate strategic partners</li>
+          <li>Build alliances to expand distribution channels</li>
+          <li>Facilitate pilot programs and co-innovation opportunities</li>
+          <li>Accelerate revenue through partner ecosystems</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <h3 class="service-title">Business Development & Commercial Strategy</h3>
+        <p class="service-desc">Structuring sales organizations and scaling commercial models through fractional BD leadership, executive outreach, and strategic buyer engagement.</p>
+        <ul class="service-items">
+          <li>Sales organization and channel model design</li>
+          <li>Key influencer and decision-maker engagement</li>
+          <li>Fractional business development leadership</li>
+          <li>Strategic buyer identification and outreach</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">04</div>
+        <h3 class="service-title">Investor & Capital Strategy Support</h3>
+        <p class="service-desc">Supporting Series A fundraising and investor relations through co-led pitch development, diligence preparation, and performance-based incentive structures.</p>
+        <ul class="service-items">
+          <li>Series A advisory and investor relations</li>
+          <li>Pitch development and diligence prep</li>
+          <li>Investor introduction and finder's fee structures</li>
+          <li>Stakeholder engagement and roadshow support</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">05</div>
+        <h3 class="service-title">Market & Competitive Intelligence</h3>
+        <p class="service-desc">Deep-dive competitive analysis and voice-of-customer insights to validate market position, identify white space, and sharpen differentiation.</p>
+        <ul class="service-items">
+          <li>Competitive landscape and market analysis</li>
+          <li>Voice-of-customer executive interviews</li>
+          <li>Market sizing and entry point analysis</li>
+          <li>Differentiator identification and validation</li>
+        </ul>
+      </div>
+
+      <div class="service-card" style="display:flex;flex-direction:column;justify-content:space-between;">
+        <div>
+          <div class="service-number" style="opacity:0.4;">✦</div>
+          <h3 class="service-title">Engagement Models</h3>
+          <p class="service-desc">Flexible structures designed to meet companies at their stage and needs — from focused projects to embedded fractional leadership.</p>
+        </div>
+        <ul class="service-items">
+          <li>Monthly retainer (40–160 hrs/month)</li>
+          <li>Expert advisory ($600/hr one-off)</li>
+          <li>Standard consulting ($250/hr)</li>
+          <li>Performance-based commission structures</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients">
+  <div class="container">
+    <div class="clients-header">
+      <div>
+        <div class="section-label">Client Experience</div>
+        <h2 class="section-title">A track record built on <em>results</em></h2>
+      </div>
+      <div>
+        <p class="clients-intro">
+          With a proven record across leading healthcare organizations — from global enterprises to high-growth startups — Cultivate Health Advisors combines industry knowledge, networks, and executional expertise to help healthcare innovators succeed.
+        </p>
+      </div>
+    </div>
+
+    <div class="client-logos">
+      <div class="client-logo-cell">
+        <div class="client-name">Oracle Health<span>Enterprise Health IT</span></div>
+      </div>
+      <div class="client-logo-cell">
+        <div class="client-name">Philips Healthcare<span>Medical Technology</span></div>
+      </div>
+      <div class="client-logo-cell">
+        <div class="client-name">IBM Health<span>Health Technology</span></div>
+      </div>
+      <div class="client-logo-cell">
+        <div class="client-name">Kaiser Permanente<span>Integrated Health System</span></div>
+      </div>
+      <div class="client-logo-cell">
+        <div class="client-name">Stanford Medicine<span>Academic Medical Center</span></div>
+      </div>
+      <div class="client-logo-cell">
+        <div class="client-name">Sorsix<span>Global Health Technology</span></div>
+      </div>
+      <div class="client-logo-cell">
+        <div class="client-name">GenXys<span>Precision Prescribing</span></div>
+      </div>
+      <div class="client-logo-cell">
+        <div class="client-name">Booz Allen Hamilton<span>Management Consulting</span></div>
+      </div>
+      <div class="client-logo-cell">
+        <div class="client-name">Healio / Eviset<span>Digital Health</span></div>
+      </div>
+    </div>
+
+    <div class="testimonial-section">
+      <div class="testimonial-card">
+        <p class="testimonial-text">Amy's ability to navigate complex healthcare ecosystems and open doors at the C-suite level is extraordinary. She delivered meaningful validation and partnership conversations within weeks of engagement.</p>
+        <div class="testimonial-author">
+          <div class="author-dot">DF</div>
+          <div class="author-info">
+            <strong>Dalibor Frtunik</strong>
+            <span>CEO, Sorsix</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-text">What distinguishes Cultivate Health Advisors is the rare combination of genuine industry knowledge with an active, high-value network. Amy doesn't just advise — she executes with precision and integrity.</p>
+        <div class="testimonial-author">
+          <div class="author-dot">BE</div>
+          <div class="author-info">
+            <strong>Bernard Esquivel</strong>
+            <span>CEO, GenXys Health Care Systems</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="engagement-strip">
+      <div>
+        <h3>Ready to grow your healthcare innovation?</h3>
+        <p>Whether you're entering the US market, building your first strategic partnerships, or preparing for a fundraise — let's explore how Cultivate Health Advisors can accelerate your journey.</p>
+      </div>
+      <div class="engagement-actions">
+        <a href="mailto:amy@cultivatehealthadvisors.com" class="btn-primary">Start a Conversation</a>
+        <a href="https://www.cultivatehealthadvisors.com" class="btn-outline-teal" target="_blank">Visit Website</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="wordmark">Cultivate Health Advisors</div>
+        <div class="tagline">Growing Innovation</div>
+      </div>
+      <div class="footer-contact">
+        <a href="mailto:amy@cultivatehealthadvisors.com">amy@cultivatehealthadvisors.com</a>
+        <a href="https://www.cultivatehealthadvisors.com" target="_blank">www.cultivatehealthadvisors.com</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2025 Cultivate Health Advisors, LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
